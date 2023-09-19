@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://clssijylm87sl" path="res://ufo green.png" id="1_jbicx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bfj3k"]
-radius = 47.0
+radius = 19.0263
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0

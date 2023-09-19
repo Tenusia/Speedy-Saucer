@@ -1,19 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce4rgwe5nryll"]
+[gd_scene load_steps=7 format=3 uid="uid://ce4rgwe5nryll"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_71w3f"]
 [ext_resource type="Texture2D" uid="uid://c8q7arnul6qql" path="res://purple.png" id="1_kbtj5"]
 [ext_resource type="PackedScene" uid="uid://bowp6mxqpqis0" path="res://player.tscn" id="2_28lxr"]
 [ext_resource type="PackedScene" uid="uid://dfda2l6bu41od" path="res://maze.tscn" id="4_q2y34"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_n0c00"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_hs5js"]
+font_size = 28
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_71w3f")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
 z_index = -100
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_kbtj5")
 stretch_mode = 1
+
+[node name="StartLabel" type="Label" parent="Graphics"]
+z_index = -25
+offset_left = 668.0
+offset_top = 238.0
+offset_right = 763.0
+offset_bottom = 286.0
+text = "START"
+label_settings = SubResource("LabelSettings_n0c00")
+horizontal_alignment = 1
+
+[node name="TutorialLabel" type="Label" parent="Graphics"]
+z_index = -25
+offset_left = 21.0
+offset_top = 224.0
+offset_right = 460.0
+offset_bottom = 412.0
+text = "			Go to the exit!
+
+- Move with Arrow keys 
+  or WASD
+- Dont touch the walls!"
+label_settings = SubResource("LabelSettings_hs5js")
+
+[node name="EndLabel" type="Label" parent="Graphics"]
+z_index = -25
+offset_left = -232.0
+offset_top = 155.0
+offset_right = -137.0
+offset_bottom = 203.0
+text = "END"
+label_settings = SubResource("LabelSettings_n0c00")
+horizontal_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("2_28lxr")]
 position = Vector2(587, 313)
